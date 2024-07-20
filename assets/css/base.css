@@ -44,6 +44,8 @@ html{
 .grid__row{
     display: flex;
     flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
 }
 
 /* Animation */
@@ -107,7 +109,7 @@ html{
     outline: none;
     cursor: pointer;
     color: var(--text-color);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 }
@@ -130,4 +132,19 @@ html{
     height: 24px;
     font-size: 12px;
     padding: 0 8px;
+}
+
+/* test  */
+
+.grid__column-2 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 16.6667%;
+
+}
+
+.grid__column-8 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 83.3333%;
 }
