@@ -792,3 +792,210 @@
 
 
 /* Home sort + filter */
+
+.home-filter {
+    display: flex;
+    align-items: center;
+    padding: 12px 22px;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.home-filter__label {
+    font-size: 1.4rem;
+    color: #555555;
+    margin-right: 16px;
+}
+.home-filter__page {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.home-filter__btn {
+    min-width: 90px;
+    margin-right: 12px;
+    background-color: var(--white-color);
+}
+
+.home-filter__page-num {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-right: 22px;
+}
+
+.home-filter__page-current {
+    color: var(--primary-color);
+}
+
+.home-filter__page-control {
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    width: 72px;
+    height: 36px;
+}
+.home-filter__page-btn {
+    flex: 1;
+    display: flex;
+    background-color: var(--white-color);
+    text-decoration: none;
+}
+
+.home-filter__page-icon {
+    margin: auto;
+    font-size: 1.4rem;
+    color: #555555;
+}
+
+.home-filter__page-btn:first-child {
+    border-right: 1px solid #eeeeee;
+    cursor: default;
+}
+
+.home-filter__page-btn--disable{
+    background-color: #f9f9f9;
+}
+ .home-filter__page-btn--disable .home-filter__page-icon{
+    color: #cccccc;
+ }
+
+ /* Product item */
+ .home-product-item {
+    background-color: var(--white-color);
+    margin-top: 10px;
+    position: relative;
+ }
+
+.home-product-item__img{
+    padding-top: 100%; /*Tạo ra hình vuông*/
+    background-repeat: no-repeat;
+    background-size: contain;  /*Hiển thị hình ảnh đầy đủ*/
+}
+.home-product-item__name{
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-color);
+    height: 2.8rem;
+    line-height: 1.4rem;
+    margin: 10px 10px 6px;
+    overflow: hidden; /*Ẩn phần vượt ra ngoài khung*/
+    display: block;
+    display: -webkit-box; /*Chuyển thành box*/
+    -webkit-box-orient: vertical; /*Chuyển thành chiều dọc*/
+    -webkit-line-clamp: 2; /*Số dòng hiển thị*/
+}
+.home-product-item__price{
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap; /*Chuyển xuống dòng mới nếu không đủ chỗ*/
+}
+
+.home-product-item__price-old{
+    margin-left: 10px;
+    font-size: 1.2rem;
+    color: #666;
+    text-decoration: line-through;
+}
+.home-product-item__price-current{
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-left: 10px;
+}
+
+
+.home-product-item__action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px 0;
+}
+.home-product-item__like {
+    font-size: 1.3rem;
+}
+
+i.home-product-item__like-icon-fill {
+    display: none;
+    color: #f63d30;
+}
+
+.home-product-item__like--liked .home-product-item__like-icon-fill {
+    display: inline-block;
+}
+
+.home-product-item__like--liked .home-product-item__like-icon-empty {
+    display: none;
+}
+
+.home-product-item__rating {
+    font-size: 1rem;
+    transform: scale(0.8); /*Thu nhỏ kích thước*/
+    transform-origin: right; /*Điểm xoay*/
+    color: #d5d5d5;
+    margin: -1px 0 0 auto;
+}
+.home-product-item__star-gold {
+    color: #FFBE1C;
+}
+.home-product-item__sold{
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-left: 6px;
+}
+.home-product-item__origin {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 10px 0;
+    color: #595959;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+.home-product-item__brand {
+
+}
+.home-product-item__origin-name  {
+
+}
+.home-product-item__favourite {
+    position: absolute;
+    top: 10px;
+    left: -4px;
+    color: var(--primary-color);    
+    background-color: currentColor; /*Màu nền*/
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    padding-right: 4px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.home-product-item__favourite span {
+    color: var(--white-color);
+}
+
+.home-product-item__favourite::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    border-top: 4px solid currentColor;
+    border-left: 4px solid transparent;
+    filter: brightness(0.6); /*Tăng độ sáng*/
+}
+
+
+.home-product-item__favourite i {
+    color: var(--white-color);
+    font-size: 0.9rem;
+    margin: 0 2px 0 5px;
+}
+.home-product-item__sale-off {
+
+}
+.home-product-item__sale-off-percent {
+
+}
+.home-product-item__sale-off-label {
+
+}
