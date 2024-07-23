@@ -188,6 +188,8 @@
     border-radius: 2px;
     display: none; /*Ẩn QR code*/
     animation: fadeIn ease-in 0.8s; 
+    z-index: 1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .header__qr::before{
@@ -532,6 +534,7 @@
     display: none;
     animation: fadeIn ease-in 0.2s;
     cursor: default;
+    z-index: 1;
 }
 
 .header__cart-list::after {
@@ -569,6 +572,8 @@
 .header__cart-list-item{
     padding-left: 0;
     list-style: none;
+    height: 50vh;    /*Chiều cao tối đa của giỏ hàng*/
+    overflow-y: auto; /*Cuộn khi nội dung vượt quá chiều cao*/
 }
 .header__cart-item{
     display: flex;
@@ -596,9 +601,18 @@
 }
 .header__cart-item-name{
     font-size: 1.4rem;
+    line-height: 2rem;
+    max-height: 4rem;
+    overflow: hidden;
     font-weight: 500;
     color: var(--text-color);
     margin: 0;
+    flex: 1;
+    padding-right: 16px;
+    display: -webkit-box;  /*Chuyển thành box*/
+    -webkit-box-orient: vertical;  /*Chuyển thành chiều dọc*/
+    -webkit-line-clamp: 2;  /*Số dòng hiển thị*/
+    text-align: left;
 }
 .header__cart-item-price{
         font-size: 1.4rem;
@@ -695,6 +709,7 @@
     box-shadow: 0 1px 5px #b5b5b5;
     display: none;
     overflow: hidden;
+    z-index: 1;
 }
 
 .header__search-history-heading{
@@ -861,16 +876,34 @@
  }
 
  /* Product item */
+ .home-product{
+    margin-bottom: 10px;
+ }
  .home-product-item {
+    display: block;
+    text-decoration: none;
     background-color: var(--white-color);
     margin-top: 10px;
     position: relative;
+     border-radius: 2px;
+    box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.1);
+    transition: transform linear 0.1s;  /*Chuyển động khi rê chuột vào item*/
+    will-change: transform; /*Tối ưu hóa hiệu suất*/
  }
+
+  .home-product-item:hover {
+    box-shadow: 0 0.1rem 20px 0 rgba(0,0,0,0.05);
+    transform: translateY(-1px);
+}
+
 
 .home-product-item__img{
     padding-top: 100%; /*Tạo ra hình vuông*/
     background-repeat: no-repeat;
     background-size: contain;  /*Hiển thị hình ảnh đầy đủ*/
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-position: top center;
 }
 .home-product-item__name{
     font-size: 1.4rem;
@@ -991,11 +1024,123 @@ i.home-product-item__like-icon-fill {
     margin: 0 2px 0 5px;
 }
 .home-product-item__sale-off {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 36px;
+    text-align: center;
+    background-color: rgba(255,216,64,0.94);
+    border-top-right-radius: 2px;
+}
 
+.home-product-item__sale-off::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    border-width: 0 20px 4px;
+    border-style: solid;
+    border-color: transparent rgba(255, 216, 64, 0.94) transparent rgba(255, 216, 64, 0.94);
 }
 .home-product-item__sale-off-percent {
-
+    color: #EE4D2D;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    position: relative;
+    top: 5px;
 }
 .home-product-item__sale-off-label {
-
+    color: var(--white-color);
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    position: relative;
+    top: 8px;
+    font-weight: 600;
 }
+
+/* patination */
+
+.home-product__pagination {
+    margin: 48px 0 32px 0;
+}
+
+/* footer */
+
+.footer {
+    border-top: 4px solid var(--primary-color);
+    padding-top: 16px;
+}
+.footer__heading {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+.footer__list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-item__link {
+    text-decoration: none;
+    color: #737373;
+    font-size: 1.2rem;
+    display: block;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer-item__link:hover {
+    color: var(--primary-color);
+}
+
+.footer-item__icon {
+    font-size: 1.6rem;
+    margin-top: -1px;
+    margin-right: 8px;
+}
+
+.footer__download {
+    display: flex;
+}
+.footer__download-qr {
+    width: 80px;
+    height: 80px;
+    /*object-fit: contain;  /*Hiển thị hình ảnh đầy đủ*/
+    border: 1px solid #e8e8e8;
+}
+
+.footer__download-apps {
+    flex: 1;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;  /*Hiển thị các item theo chiều dọc*/
+    justify-content: center;
+}
+
+.footer__download-app-img {
+    height: 16px;
+}
+
+.footer__download-app-link {
+    color: transparent;
+    text-decoration: none;
+    padding: 4px 0;
+}
+
+.footer__bottom {
+    background-color: #f5f5f5;
+    padding: 8px 0;
+    margin-top: 36px ;
+}
+
+.footer__text {
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: center;
+    color: #737373
+}
+
